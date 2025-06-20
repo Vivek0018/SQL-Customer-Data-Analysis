@@ -29,13 +29,34 @@ CREATE TABLE customer_transactions (
 ```
 
 
-## 🔍 Business Insights Extracted
+🔍 Business Insights Extracted
+📅 Monthly Revenue Trend
+Analyze how revenue fluctuates month-over-month to identify seasonal patterns or growth trends.
+→ vw_monthly_revenue
 
-- 📅 **Monthly Revenue Trend**
-- 💰 **Top 10 Spending Customers**
-- 📍 **Revenue Distribution by Location**
-- 🛍️ **Popular Product Categories**
-- 🔁 **Repeat Customer Rate**
+💰 Top 10 Spending Customers
+Identify the highest spending customers to prioritize retention and engagement strategies.
+→ vw_top_customers
+
+📍 Revenue Distribution by Location
+Understand which geographical regions contribute most to overall revenue.
+→ vw_revenue_by_location
+
+🛍️ Popular Product Categories
+Discover which product categories generate the most revenue overall.
+→ vw_popular_categories
+
+🔁 Repeat Customers
+List all customers who made more than one transaction — useful for loyalty analysis.
+→ vw_repeat_customers
+
+📈 Repeat Customer Rate
+Calculate the percentage of customers who made multiple purchases, indicating loyalty levels.
+→ vw_repeat_customer_rate
+
+🌍 Revenue by Category and Location
+Drill down into revenue by both product category and customer location to identify localized category performance.
+→ vw_category_revenue_by_location
 
 
 ## 🧪 How to Use
