@@ -48,3 +48,31 @@ SELECT
     tx_count
 FROM customer_tx_count
 WHERE tx_count > 1;
+
+-- 🛍️ View 6: Popular Product Categories
+CREATE OR REPLACE VIEW vw_popular_categories AS
+SELECT 
+    product_category,
+    ROUND(SUM(amount), 2) AS total_revenue
+FROM customer_transactions
+GROUP BY product_category
+ORDER BY total_revenue DESC;
+
+-- 📈 View 7: Repeat Customer Rate
+CREATE OR REPLACE VIEW vw_repeat_customer_rate AS
+WITH total_customers AS (
+    SELECT COUNT(DISTINCT customer_id) AS total FROM customer_transactions
+),
+repeat_customers AS (
+    SELECT COUNT(*) AS repeat FROM (
+        SELECT customer_id
+        FROM customer_transactions
+        GROUP BY customer_id
+        HAVING COUNT(*) > 1
+    ) AS r
+)
+SELECT 
+    repeat,
+    total,
+    ROUND((repeat * 100.0 / total), 2) AS repeat_rate_percentage
+FROM repeat_customers, total_customers;
